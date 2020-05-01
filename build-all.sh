@@ -6,7 +6,7 @@ repo="empiricaly/meteor"
 
 echo Meteor releases available: ${releases[@]}
 
-releasesToSkip=( "1.5.4.2" "1.6.1.2" "1.6.1.3" "1.6.2" )
+releasesToSkip=( "1.5.4.2" "1.6.1.2" "1.6.1.3" "1.6.2" "1.7.1" )
 
 echo Some of these \"available\" releases are not really available \(possibly, because they are expired\), namely: ${releasesToSkip[@]}
 

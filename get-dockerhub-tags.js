@@ -5,7 +5,10 @@ async function getResponseText(response) {
     return await new Promise((resolve, reject) => {
         let data = "";
 
-        response.on("data", chunk => data += chunk).on("end", () => resolve(data)).on("error", reject);
+        response
+            .on("data", chunk => data += chunk)
+            .on("end", () => resolve(data))
+            .on("error", reject);
     });
 }
 
