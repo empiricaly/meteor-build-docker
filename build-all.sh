@@ -23,6 +23,4 @@ do
   tag="${repo}:${release}"
   echo Now building ${tag}:
   docker build -t "${tag}" --build-arg "METEOR_RELEASE=${release}" .
-  docker push "${repo}"
-  docker image rm "${tag}"
 done
