@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
 
-ARG METEOR_RELEASE=1.9.3
-
 # meteor consists of a runtime shell (the meteor executable) and a meteor tool.
 # This allows a single meteor executable to operate with a variety of different meteor releases.
 # In this docker image we ensure that both the executable and the tool for respetive meteor release are installed.
@@ -10,6 +8,8 @@ ARG METEOR_RELEASE=1.9.3
 RUN set -ex \
     && apt-get update \
     && apt-get install -y curl python build-essential
+
+ARG METEOR_RELEASE=1.9.3
 
 # install the meteor runtime shell executable
 RUN set -ex \
