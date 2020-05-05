@@ -9,7 +9,7 @@ RUN set -ex \
     && apt-get update \
     && apt-get install -y curl python build-essential
 
-ARG METEOR_RELEASE=1.10.1
+ARG METEOR_RELEASE=1.10.2
 
 # install the meteor runtime shell executable
 RUN set -ex \
