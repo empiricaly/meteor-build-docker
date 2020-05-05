@@ -1,16 +1,16 @@
 #!/bin/bash
 set -e
 # Find all clean release tags starting with 1.5.0
-releases=$( git ls-remote -q --tags git@github.com:meteor/meteor.git release/METEOR@* | grep -o -P '(?<=METEOR@)1\.([5-9]|\d\{2,})\.\d+(\.\d+)*' | sort | uniq )
+releases=$( git ls-remote -q --tags git@github.com:meteor/meteor.git release/METEOR@* | grep -o -P '(?<=METEOR@)1\.([5-9]|\d\d+)(\.\d+)*' | sort | uniq )
 repo="empiricaly/meteor"
 
-echo Meteor releases available: ${releases[@]}
+echo "Meteor releases available: ${releases[@]}"
 
-releasesToSkip=( "1.5.4.2" "1.6.1.2" "1.6.1.3" "1.6.2" "1.7.1" )
+releasesToSkip=( "1.5.4.2" "1.6.1.2" "1.6.1.3" "1.6.2" "1.7.1" "1.10" )
 
-echo Some of these \"available\" releases are not really available \(possibly, because they are expired\), namely: ${releasesToSkip[@]}
+echo "Some of these \"available\" releases are not really available \(possibly, because they are expired\), namely: ${releasesToSkip[@]}"
 
-imagesAvailable=$( node ./get-dockerhub-tags.js https://hub.docker.com/v2/repositories/${repo}/tags | sort | uniq )
+imagesAvailable=$( node ./get-dockerhub-tags.js "https://hub.docker.com/v2/repositories/${repo}/tags" | sort | uniq )
 
 echo Images already on the registry $repo: ${imagesAvailable[@]}
 
